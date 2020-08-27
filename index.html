@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="rgb(10,2,31)">
+    <title>AstroSat</title>
+    <link rel="icon" href="img\lofo.jpg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- For Social Media Bar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <!-- Make sure you put tdis AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script src="myscripts.js"></script>
+</head>
+
+<body onload="openalert()">
+    <hr>
+    <hr>
+
+    <nav class="background4 navbar h-nav background1 bc" id="top">
+        <div class="logo">
+            <a href="index.html"> <img src="img\lofo.jpg" alt="Logo" ; /></a>
+        </div>
+        <ul class="nav-list v-class">
+
+            <li>
+                <a id="ft" onclick="window.scroll(0,685)">Where is the ISS</a>
+            </li>
+
+            <li><a id="fe" href="#sugg">Feedbacks</a></li>
+
+        </ul>
+
+        <div class="burger" id="burg" title="Menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+
+    </nav>
+    <!--------- Alert Box-------->
+    <div class="alert" id="alert-box">
+
+        <!-- content -->
+
+        <!-- close btn -->
+        <div class="content">
+            <span onclick="closealert()" class="closebtn">&times;</span>
+            <!-- Notes -->
+            <h2 style="width:50%">Note:</h2>
+            <br>
+            <ul>
+                <li>The data associated with the map and the map itself may take some time to load. So please wait for a
+                    while.</li>
+                <li>Please give your valuable feedbacks at the bottom end of the page. It will help me a lot to improve
+                    the user's experience.</li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!-- Social Media Bar -->
+    <div class="icon-bar">
+        <!-- <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> -->
+        <a href="https://mobile.twitter.com/TANISHCHOUHAN9" target="_blank" class="twitter"><i
+                class="fa fa-twitter"></i></a>
+        <a href="https://www.instagram.com/tanish8651/" target="_blank" class="instagram"><i
+                class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tanish-singh-chouhan-a78856193" target="_blank" class="linkedin"><i
+                class="fa fa-linkedin"></i></a>
+    </div>
+    <!-- top-button -->
+    <div>
+        <button id="topbtn" title="Go to Top" onclick="topFunction()">&#x21E7</button>
+    </div>
+    <!-- main-content -->
+    <section class=" background0 first-section background7">
+
+        <div class="box-main">
+
+            <div class="first-half">
+                <p class="text-big"><strong>AstroSat</strong><a href="index.html"><img src="img\lg.jpg" /></a></p>
+                <div class="small-text">
+                    <p>A place where you can <b><a href="satellite-tracker"
+                                style="text-decoration: none ;color:rgb(218, 188, 133);">Track Satellites</a> including
+                            the <a href="https://en.wikipedia.org/wiki/Satellite" style="color:white;"
+                                target="_blank">ISS</a></b> with thier
+
+                        <span style="color: wheat;">Geographical Coordinates , Altitude</span> and many more. You can
+                        also enjoy the live stream of 'Earth from Space Station'. Here, below are some buttons for Quick
+                        Access.</p>
+
+                </div>
+                <div style="display: flex;margin-left: 29px;">
+                    <button class="btn-sm" onclick="window.location.href='#iss2'">Track ISS</button>
+                    <!-- <button class="btn-sm">Track Satellites</button> -->
+                    <button class="btn-sm" onclick="window.scroll(20,1300)">Live Stream</button>
+                </div>
+
+            </div>
+            <div class="sc-animate" onclick="window.scroll(0,685)">
+                <span class="aero"></span>
+                <span class="aero"></span>
+                <span class="aero"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="background1 third-section background0" id="iss2">
+
+        <div class="box-main2" id="iss1">
+            <div></div>
+            <div class="first">
+                <p class="iss"><strong>ISS Tracker</strong><a href="index.html"><img
+                            src="https://media.giphy.com/media/xUNd9ZwlnjBO4lXYgU/giphy.gif" alt="satellite gif" /></a>
+                </p>
+            </div>
+            <div class="second">
+                <button class="btn-sm"
+                    onclick="window.open('https://en.wikipedia.org/wiki/International_Space_Station','_blank')"
+                    title="ISS Wikipedia" style="letter-spacing: 0px;">What is ISS..</button>
+            </div>
+            <div class="third">
+                <div class="map">
+                    <div id="mapid"></div>
+                </div>
+                <div class="data-table">
+                    <table>
+
+                        <tr>
+                            <td>Latitude : &nbsp;<span id="lat" style="color: rgb(255, 205, 113);"></span>°
+                                (decimal
+                                degrees)</td>
+                        </tr>
+                        <tr>
+                            <td>Longitude : &nbsp;<span id="lon" style="color: rgb(255, 205, 113);"> </span>°
+                                &nbsp;(decimal
+                                degrees)</td>
+                        </tr>
+                        <tr>
+                            <td>Altitude : &nbsp;<span id="alt" style="color: rgb(255, 205, 113);"> </span>°
+                                &nbsp;(decimal
+                                degrees)</td>
+                        </tr>
+                        <tr>
+                            <td>Azimuth : &nbsp;<span id="azi" style="color: rgb(255, 205, 113);"> </span>°
+                                &nbsp;(degrees)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Elevation : &nbsp;<span id="ele" style="color: rgb(255, 205, 113);"> </span>°
+                                &nbsp;(degrees)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Declination : &nbsp;<span id="dec" style="color: rgb(255, 205, 113);"> </span>° &nbsp;
+                                (degrees)
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="live-stream background0 background1">
+        <div class="first" id="#live">
+            <p class="iss" style="font-size:30px;"><strong>Live Stream</strong><img style src="img\yt1.jpg" /></p>
+        </div>
+        <iframe src="https://www.youtube.com/embed/XBPjVzSoepo?rel=0&autoplay=1&muted=1&loop=1" alt="Live Video Stream"
+            style="margin:19px auto;border: 3px outset rgb(68, 137, 255);
+            border-radius: 10px;
+            box-shadow: 7px 7px 10px #434460;" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </section>
+    <vr>
+        <footer class="background8 background7" id="sugg">
+            <div class="footer">
+                <h1>FeedBacks</h1>
+                <!-- <p>Fill the Google Form by clicking the button below.</p> -->
+                <button class="btn-sm" target="_blank"
+                    onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdyPUVwig0YJYlX0A6jdAjFVF4JTjih_W7yM_kCZkSKWZkFUw/viewform','_blank')">Submit
+                    &nbsp;Here</button>
+            </div>
+        </footer>
+        <hr>
+        <hr>
+
+        <script src="index.js"></script>
+</body>
+
+</html>
