@@ -44,7 +44,7 @@ function live() {
   document.querySelector("#live").scrollIntoView();
 }
 
-//---------------------------------------------Burger JS------------------------//
+//---------------------------------------------Burger Menu JS------------------------//
 var burger = document.querySelector(".burger");
 var navbar = document.querySelector(".navbar");
 var navlist = document.querySelector(".nav-list");
@@ -76,7 +76,7 @@ burger.addEventListener("click", () => {
   topFunction();
 });
 
-//-----------------------------------------Social media--------------------------------------------//
+//-----------------------------------------Social Media Handles --------------------------------------------//
 
 var sicon = document.querySelector(".icon-bar");
 
