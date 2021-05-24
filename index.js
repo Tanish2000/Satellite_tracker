@@ -4,12 +4,14 @@ function openalert() {
     document.getElementById("alert-box").style.width = "73%";
     document.getElementById("alert-box").style.border = "2px inset wheat";
     document.getElementById("alert-box").style.transform = "rotateX(360deg)";
+    document.getElementById("alert-box").style.padding = "30px";
   }, 2000);
 }
 function closealert() {
   document.getElementById("alert-box").style.width = "0%";
   document.getElementById("alert-box").style.border = "";
   document.getElementById("alert-box").style.transform = "rotateZ(360deg)";
+  document.getElementById("alert-box").style.padding = "0px";
 }
 
 //------------------------- Html Page JS -----------------------------------------------//
@@ -144,4 +146,4 @@ async function getdata() {
 
 //function call for fetching data
 getdata();
-setInterval(getdata, 2000); //calling function within  intervals
+setInterval(getdata, 1700); //calling function within  intervals
