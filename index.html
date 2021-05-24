@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
-    <!-- Make sure you put tdis AFTER Leaflet's CSS -->
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
-    <script src="myscripts.js"></script>
+    <!-- <script src="myscripts.js"></script> -->
 </head>
 
 <body onload="openalert()">
@@ -128,7 +128,7 @@
             </div>
             <div class="second">
                 <button class="btn-sm"
-                    onclick="window.open('https://en.wikipedia.org/wiki/International_Space_Station','_blank')"
+                    onclick="window.open('https:en.wikipedia.org/wiki/International_Space_Station','_blank')"
                     title="ISS Wikipedia" style="letter-spacing: 0px;">What is ISS..</button>
             </div>
             <div class="third">
@@ -154,18 +154,12 @@
                                 degrees)</td>
                         </tr>
                         <tr>
-                            <td>Azimuth : &nbsp;<span id="azi" style="color: rgb(255, 205, 113);"> </span>°
+                            <td>Velocity : &nbsp;<span id="vel" style="color: rgb(255, 205, 113);"> </span>°
                                 &nbsp;(degrees)
                             </td>
                         </tr>
                         <tr>
-                            <td>Elevation : &nbsp;<span id="ele" style="color: rgb(255, 205, 113);"> </span>°
-                                &nbsp;(degrees)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Declination : &nbsp;<span id="dec" style="color: rgb(255, 205, 113);"> </span>° &nbsp;
-                                (degrees)
+                            <td>Unit : &nbsp;<span id="unit" style="color: rgb(255, 205, 113);"> </span>
                             </td>
                         </tr>
 

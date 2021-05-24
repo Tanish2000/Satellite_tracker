@@ -99,11 +99,9 @@ function smediaFunction() {
 
 //Making the Map with Tiles
 const mymap = L.map("mapid", (dragging = true)).setView([0, 0], 2);
-const attribution =
-  '&copy;<a href="https://www.maptiler.com/copyright/" target="_blank"> MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
+const attribution = '&copy;<a href="https://www.maptiler.com/copyright/" target="_blank"> MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
 
-const tileUrl =
-  "https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=zZVhyIKbqR0aETNKlJQe";
+const tileUrl ="https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=zZVhyIKbqR0aETNKlJQe";
 const tiles = L.tileLayer(tileUrl, { attribution });
 tiles.addTo(mymap);
 
@@ -119,45 +117,31 @@ const marker = L.marker([0, 0], { icon: myIcon }).addTo(mymap);
 
 //function for fetching data from API..
 
-url =
-  "https://www.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=WGNHAB-UKJG9Y-87YADR-4FM9"; // API Get URl
+var url =  "https://api.wheretheiss.at/v1/satellites/25544"; // API Get URl
 var it = 0;
 
 async function getdata() {
-  const response = await fetch(url);
-  const data = await response.json();
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data); 
 
   if (it == 0) {
-    mymap.setView(
-      [data.positions[0].satlatitude, data.positions[0].satlongitude],
-      2
-    );
+    mymap.setView([data.latitude, data.longitude],3);
     it = it + 1;
   }
   marker.setLatLng([
-    data.positions[0].satlatitude,
-    data.positions[0].satlongitude,
+    data.latitude,
+    data.longitude,
   ]);
 
-  console.log(data.positions);
-  document.getElementById(
-    "lat"
-  ).textContent = data.positions[0].satlatitude.toFixed(3);
-  document.getElementById(
-    "lon"
-  ).textContent = data.positions[0].satlongitude.toFixed(3);
-  document.getElementById(
-    "azi"
-  ).textContent = data.positions[0].azimuth.toFixed(3);
-  document.getElementById(
-    "alt"
-  ).textContent = data.positions[0].sataltitude.toFixed(3);
-  document.getElementById(
-    "ele"
-  ).textContent = data.positions[0].elevation.toFixed(3);
-  document.getElementById("dec").textContent = data.positions[0].dec.toFixed(3);
+  document.getElementById("lat").textContent = data.latitude.toFixed(3);
+  document.getElementById("lon").textContent = data.longitude.toFixed(3);
+  document.getElementById("alt").textContent = data.altitude.toFixed(3);
+  document.getElementById("vel").textContent = data.velocity.toFixed(3);
+  document.getElementById("unit").textContent = data.units;
 }
+
 
 //function call for fetching data
 getdata();
-setInterval(getdata, 1000); //calling function within  intervals
+setInterval(getdata, 2000); //calling function within  intervals
